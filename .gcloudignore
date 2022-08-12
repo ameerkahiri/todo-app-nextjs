@@ -1,0 +1,9 @@
+# Next.js source code
+/.git/
+/.next/
+/components/
+/containers/
+/node_modules/
+/pages/
+/public/
+/styles/

@@ -12,7 +12,7 @@ export default function Home() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios.get("http://localhost:3000/api/to-dos");
+      const result = await axios.get(/*"http://localhost:3000/api/to-dos"*/"https://strapitodo.as.r.appspot.com/api/to-dos");
       setTodos(result?.data.data);
     };
     fetchData()
@@ -22,7 +22,7 @@ export default function Home() {
 
   const addTodo = async (todotext) => {
     if (todotext && todotext.length > 0) {
-      const result = await axios.post("http://localhost:3000/api/to-dos", {
+      const result = await axios.post(/*"http://localhost:3000/api/to-dos"*/"https://strapitodo.as.r.appspot.com/api/to-dos", {
         "data": {
           ToDoText: todotext,
         }
@@ -34,7 +34,7 @@ export default function Home() {
 
   const deleteTodoItem = async (todo) => {
     if (confirm("Do you really want to delete this item?")) {
-      await axios.delete("http://localhost:3000/api/to-dos/" + todo.id);
+      await axios.delete(/*"http://localhost:3000/api/to-dos/"*/"https://strapitodo.as.r.appspot.com/api/to-dos/" + todo.id);
       const newTodos = todos.filter((_todo) => _todo.id !== todo.id);
       console.log(newTodos);
       setTodos(newTodos);
@@ -45,7 +45,7 @@ export default function Home() {
   const editTodoItem = async (todo) => {
     const newTodoText = prompt("Enter new todo text or description:");
     if (newTodoText != null) {
-      const result = await axios.put("http://localhost:3000/api/to-dos/" + todo.id, {
+      const result = await axios.put(/*"http://localhost:3000/api/to-dos/"*/"https://strapitodo.as.r.appspot.com/api/to-dos/" + todo.id, {
         "data": {
           ToDoText: newTodoText,
         }
